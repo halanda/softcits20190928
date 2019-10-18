@@ -26,3 +26,6 @@ hs_err_pid*
 .project
 .settings
 
+src/lesson2/Practice2.java
+*.java
+*.java
