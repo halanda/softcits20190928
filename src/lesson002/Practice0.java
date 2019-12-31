@@ -30,8 +30,8 @@ public class Practice0 {
 
 	public static int calculate(int a,int b,int c) {
 		int m = multiple(b,c);
-		int resule = add(a,m);
-		return resule;
+		int result = add(a,m);
+		return result;
 	}
 	
 	public static int multiple(int a,int b) {
