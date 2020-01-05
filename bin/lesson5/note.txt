@@ -1,0 +1,30 @@
+面向过程编程
+
+JAVA -> 面向对象编程   Object Oriented Programming = OOP
+
+
+对象属性的访问级别
+	public -> 可以被一切外部类访问
+	protected -> 可以被相同包下的类访问,如何没有指定关键字默认都是protected
+	private -> 不可被一切外部类访问
+	
+
+变量的类型分为
+	1. 基本类型 
+		byte、short、int、long、boolean、char、float、double
+	2. 引用类型
+		Human
+		数组(即使数组的元素是基本类型)
+		String/Integer... 对基本类型包装的八个包装类型虽然是引用类型但是底层还是基本类型特点
+		
+关键字null是对引用变量使用的，只是清空引用
+
+关键字this表示本对象
+
+
+https://www.hackerrank.com/challenges/java-inheritance-1/problem
+https://www.hackerrank.com/challenges/java-interface/problem
+https://www.hackerrank.com/challenges/java-inheritance-2/problem
+https://www.hackerrank.com/challenges/sock-merchant/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=warmup
+
+
