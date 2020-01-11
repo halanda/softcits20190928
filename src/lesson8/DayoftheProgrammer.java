@@ -30,21 +30,26 @@ public class DayoftheProgrammer {
     	
     	 String days = "";
          if(year > 1918){
+        	//leap year
              if(year%400==0 || (year%4==0 && year%100 !=0)){
                  days = "12.09."+year;
              }
+           //not leap year
              else{
                  days = "13.09."+year;
              }
          }
          else if(year < 1918){
+        	//leap year
              if(year%4==0){
                  days = "12.09."+year;
              }
+           //not leap year
              else{
                  days = "13.09."+year;
              }
          }
+      // in 1918, next day after January  was February
          else {
              days = "26.09."+year;
          }
