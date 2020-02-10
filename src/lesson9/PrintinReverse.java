@@ -85,7 +85,7 @@ public class PrintinReverse {
 //            System.out.println(head.data);
 //            head = head.next;
 //        }
-    	
+//    	方法一：
     	
     	if(head == null)
             return;
@@ -97,9 +97,44 @@ public class PrintinReverse {
         for(int i = list.size() - 1; i >= 0; i--){
             System.out.println(list.get(i));
         }        
+//    	方法二：老师的方法
+        List<SinglyLinkedListNode> list = new ArrayList<>();
+        SinglyLinkedListNode node = head;
+        while(node!=null) {
+        	list.add(node);
+        	node=node.next;
+        }
+        for(int i=list.size()-1;i>=0;i--)
+        	System.out.println(list.get(i).data);
+        
+//        方法三：老师的第二种integer方法
+        List<Integer> list = new ArrayList<>();
+SinglyLinkedListNode node = head;
     	
+    	while(node!=null) {
+    		list.add(node.data);
+    		node=node.next;
+    	}
+    	for(int i=list.size()-1;i>=0;i--)
+    		System.out.println(list.get(i));
         
+//    	方法四：使用“栈”来做
+    	Stack<Integer> stack = new Stack<>();
+SinglyLinkedListNode node = head;
+    	
+    	while(node!=null) {
+    		stack.push(node.data);
+    		node=node.next;
+    	}
         
+    	while(!stack.isEmpty()) {
+    		System.out.println(stack.pop());
+    	}
+    	
+//    	方法五：迭代
+    	if(head.next != null) reversePrint(head.next);
+    	System.out.println(head.data);
+    	
 //        ArrayList<SinglyLinkedListNode> list = new ArrayList<>();
 //        list.add(head);
 //        if (head == null) {
