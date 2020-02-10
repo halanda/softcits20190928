@@ -8,6 +8,8 @@ import java.util.*;
 import java.util.concurrent.*;
 import java.util.regex.*;
 
+import lesson10.DeleteaNode.SinglyLinkedListNode;
+
 public class DeleteaNode {
 
     static class SinglyLinkedListNode {
@@ -92,7 +94,7 @@ public class DeleteaNode {
 //
 //        return head;
 //    }
-    	
+//   方法一	
     	if(head != null && position == 0)
             return head = head.next;
         SinglyLinkedListNode curr = head;
@@ -110,6 +112,42 @@ public class DeleteaNode {
         }
         return head;
     	
+//        方法二；老师改后的最佳做法
+//        int i = 0;
+//   	 	SinglyLinkedListNode node=head;
+//   	    if (head == null)
+//   	        return null;
+//   	    if (position == 0) {
+//   	    	SinglyLinkedListNode old_head = head;
+//   	    	head = old_head.next;
+//   	    	old_head = null;
+//   	    	return head;
+//   	    }
+//   	        
+//   	    while (i < position - 1)
+//   	    {
+//   	        head = head.next;
+//   	        i++;
+//   	    }
+//   	    head.next = (head.next).next;
+//   	    return node;
+        
+//        方法三；小媛做法
+//        int i = 0;
+//   	 SinglyLinkedListNode node=head;
+//   	    if (head == null)
+//   	        return null;
+//   	    if (position == 0)
+//   	        return head.next;
+//   	    while (i < position - 1)
+//   	    {
+//   	        head = head.next;
+//   	        i++;
+//   	    }
+//   	    head.next = (head.next).next;
+//   	    return node;
+        
+        
 
     }
 
