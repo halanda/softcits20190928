@@ -15,8 +15,21 @@ public class Sock_Merchant {
 
 		int[] color_arr = new int[101];
 		for (int i = 0; i < ar.length; i++) {
-			color_arr[ar[i]]++;
+
+			int index = ar[i];
+			color_arr[index]++;
+
+//			color_arr[ar[i]]++;
 		}
+		
+//		int i=0;
+//		while(i < ar.length) {
+//			
+//			int index = ar[i];
+//			color_arr[index]++;
+//			i++;
+//		}
+		
 
 		int sum = 0;
 		for (int i = 0; i < color_arr.length; i++) {
