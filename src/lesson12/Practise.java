@@ -70,7 +70,7 @@ static String str_a, str_b;
 	
 	//输出结果数组，倒序
 	static void print_result(int[] result) {
-		for(int i = get_index_of_highest_digit(result) - 1; i>=0 ;i--)
+		for(int i = get_index_of_highest_digit(result) ; i>=0 ;i--)
 			System.out.print(result[i]);
 	}
 	
@@ -79,8 +79,8 @@ static String str_a, str_b;
 		
 		for(int i = result.length - 1; i >=0 ; i--) {
 			if(result[i] != 0) {
-				//????????
-				return i+1;
+				
+				return i;
 			}
 		}
 		return 0;
