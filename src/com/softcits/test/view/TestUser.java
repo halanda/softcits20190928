@@ -15,7 +15,11 @@ public class TestUser {
 		String pwd = sc.next();
 		
 		User u = new User();
-		if(u.login(na, pwd)){
+//		封装后增加
+		u.setName(na);
+		u.setPassword(pwd);
+		
+		if(u.login(u)){
 			System.out.println("登录成功"+"欢迎你，"+na);
 		}else {
 			System.out.println("登录失败");
