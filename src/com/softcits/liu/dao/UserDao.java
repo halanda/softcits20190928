@@ -9,7 +9,7 @@ public class UserDao {
 	
 	static {
 //		tepy1
-		User user1 = new User("u01", "张三", "123", "大连", "199");
+		User user1 = new User("u01", "admin", "123", "大连", "199");
 		User user2 = new User("u02", "李四", "234", "沈阳", "139");
 		User user3 = new User("u03", "赵五", "456", "锦州", "138");
 
@@ -22,11 +22,11 @@ public class UserDao {
 		for (int i = 0; i < arr.length; i++) {
      //	找出每个对象进行比对(数组和前台)
 		if(arr[i]!=null&&arr[i].getUsername().equals(user.getUsername())&&arr[i].getUserPassword().equals(user.getUserPassword())) {
-			
+			return true;
 		}
 			
 		}
-		
+		return false;
 
 	}
 }
