@@ -11,7 +11,7 @@ public class view {
 
 	public static void main(String[] args) {
 		User user = new User();
-		// TODO Auto-generated method stub
+	
         System.out.println("欢迎您");
 		System.out.println("请选择：1登录 2注册 3...");
 		Scanner sc = new Scanner(System.in);
@@ -31,6 +31,18 @@ public class view {
 			UserDao userdao = new UserDao();
 			if (userdao.login(user)) {
 				System.out.println("欢迎使用，登录成功");
+				System.out.println("1.通过名字查数据 2.");
+				input =sc.nextInt();
+				if(input == 1) {
+					System.out.println("请输入名字");
+					user.setUsername(sc.next());
+					userdao.selectByName(user);
+					if(user!=null) {
+					System.out.println(user.toString());	
+					}
+					
+				}
+				
 			}else {
 				System.out.println("用户名或密码错误");
 				

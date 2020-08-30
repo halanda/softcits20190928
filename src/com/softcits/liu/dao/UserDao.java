@@ -29,4 +29,17 @@ public class UserDao {
 		return false;
 
 	}
+	
+	
+	public User selectByName(User user) {
+		for (int j= 0;  j< arr.length; j++) {
+		 if(arr[j]!=null&&arr[j].getUsername().equals(user.getUsername())) {
+			 return arr[j];
+		 }
+			
+		}
+		
+		return null;
+		
+	}
 }
