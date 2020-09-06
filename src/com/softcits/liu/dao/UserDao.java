@@ -17,6 +17,24 @@ public class UserDao {
 		arr[1] = user2;
 		arr[2] = user3;
 	}
+	
+	
+	
+	//查询所有
+	public User[] selectAll() {
+		return arr;
+	}
+	public static void main(String[] args) {
+		UserDao UserDao = new UserDao();
+//		UserDao.selectAll();
+		User[] arr = 	UserDao.selectAll();
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i]!=null) {
+				System.out.println(arr[i]);
+			}
+		}
+	}
+	
 	//定义登陆方法
 	public boolean login (User user) {
 		for (int i = 0; i < arr.length; i++) {
