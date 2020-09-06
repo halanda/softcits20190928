@@ -1,6 +1,9 @@
 package com.softcits.liu.dao;
 
+import java.util.Scanner;
+
 import com.softcits.liu.entity.User;
+import com.sun.org.apache.xpath.internal.FoundIndex;
 
 public class UserDao {
 	//定义一个存储User类型的数组
@@ -17,7 +20,17 @@ public class UserDao {
 		arr[1] = user2;
 		arr[2] = user3;
 	}
-	
+	//通过名字查询，看是否存在
+	public boolean checkUsername(String username) {
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i]!=null && arr[i].getUsername().equals(username)) {
+				return true;
+			} 
+			
+		}
+		return false;
+		
+	}
 	
 	
 	//查询所有
@@ -26,13 +39,28 @@ public class UserDao {
 	}
 	public static void main(String[] args) {
 		UserDao UserDao = new UserDao();
-//		UserDao.selectAll();
-		User[] arr = 	UserDao.selectAll();
-		for (int i = 0; i < arr.length; i++) {
-			if (arr[i]!=null) {
-				System.out.println(arr[i]);
-			}
+		Scanner sc = new Scanner(System.in);
+		System.out.println("请输入名字：");
+		boolean a = UserDao.checkUsername(sc.next());
+		if (a) {
+			System.out.println("存在");
+		} else {
+			
+			//调用注册
+			System.out.println("不存在");
 		}
+		
+		
+
+//		User[] arr = 	UserDao.selectAll();
+//		for (int i = 0; i < arr.length; i++) {
+//			if (arr[i]!=null) {
+//				System.out.println(arr[i]);
+//			}
+//		}
+		
+		
+		
 	}
 	
 	//定义登陆方法
