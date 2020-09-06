@@ -11,4 +11,8 @@ public class Computer implements Usb,Hdmi {
 		// TODO Auto-generated method stub
 		System.out.println("电脑显示");
 	}
+	public void Web() {
+		System.out.println("电脑上网");
+	}
+	
 }

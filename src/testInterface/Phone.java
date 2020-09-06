@@ -14,4 +14,7 @@ public class Phone implements Usb,Hdmi{
 		System.out.println("手机充电");
 	}
 
+	public void Call() {
+		System.out.println("打电话");
+	}
 }
