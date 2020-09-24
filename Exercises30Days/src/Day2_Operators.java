@@ -14,6 +14,12 @@ public class Day2_Operators {
 		double b = meal_cost * tip_percent / 100;
 		double c = meal_cost * tax_percent / 100;
 		double a = meal_cost + b + c;
+		/*
+		 * System.out.println("向上取整:" + (int) Math.ceil(96.1));// 97 (去掉小数凑整)
+		 * System.out.println("向下取整" + (int) Math.floor(96.8));// 96 (去掉小数凑整)
+		 * System.out.println("四舍五入取整:" + Math.round(96.1));// 96
+		 * System.out.println("四舍五入取整:" + Math.round(96.8));// 97
+		 */
 		System.out.println(Math.round(a));
 
 	}
