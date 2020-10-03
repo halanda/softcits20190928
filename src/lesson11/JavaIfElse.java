@@ -20,7 +20,7 @@ public class JavaIfElse {
 	        	
 	        else System.out.println("Not Weird");
 	        
-	        
+	        sss
 
 	        scanner.close();
 	    }

@@ -1,7 +1,10 @@
 package duotai_4;
 
-public abstract class Feiji {
+public  class Feiji {
 	
-	public abstract void fly();
+	public String  fly() {
+		System.out.println("feiji");
+		return "123";
+	}
 
 }

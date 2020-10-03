@@ -31,7 +31,7 @@ public class view {
 			UserDao userdao = new UserDao();
 			if (userdao.login(user)) {
 				System.out.println("欢迎使用，登录成功");
-				System.out.println("1.通过名字查数据 2.");
+				System.out.println("1.通过名字查数据 2.通过id查数据");
 				input =sc.nextInt();
 				if(input == 1) {
 					System.out.println("请输入名字");

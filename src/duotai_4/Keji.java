@@ -2,14 +2,13 @@ package duotai_4;
 
 public class Keji extends Feiji{
 
-	public void zaike() {
-		System.out.println("客机载客");
+public String  fly() {
+	System.out.println("keiji");
+		return "123";
 	}
-	@Override
-	public void fly() {
-		System.out.println("客机飞");
-		
-	}
-
-	
+public static void main(String[] args) {
+	Feiji f = new Keji();
+	Keji k = (Keji)f;
+	k.fly();
+}
 }
