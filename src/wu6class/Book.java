@@ -48,6 +48,8 @@ public class Book implements Comparable<Book> {
 		return "Book [id=" + id + ", name=" + name + ", price=" + price + "]";
 	}
 
+
+
 	@Override
 	public int compareTo(Book o) {
 		// TODO Auto-generated method stub
