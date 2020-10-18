@@ -36,9 +36,24 @@ public static void main(String[] args) {
 //}
 //文件名的过滤
 	
-	FilenameFilter fft = new TestFile();
-	File [] arr = file.listFiles(fft);
-		for (int i = 0; i < arr.length; i++) {
+//	FilenameFilter fft = new TestFile();
+//	File [] arr = file.listFiles(fft);
+//	匿名内部类
+	File [] arr = file.listFiles(new FilenameFilter() {
+		
+		@Override
+		public boolean accept(File dir, String name) {
+			if (name.endsWith(".txt")) {
+				return true;
+				
+			}else{
+				return false;	
+				}
+		}
+	});
+	
+	
+	for (int i = 0; i < arr.length; i++) {
 			System.out.println(arr[i].getName());
 		}	
 	
