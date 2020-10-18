@@ -7,10 +7,10 @@ import java.io.IOException;
 
 public class Fileoutput {
 public static void main(String[] args) {
-	File file = new File("D:\\test3.txt");
+	File file = new File("D:\\test4.txt");
 	
 	try {
-		file.createNewFile();
+//		file.createNewFile();
 FileOutputStream fos = new FileOutputStream(file);
 		
 		String str = "ÎÒ°®ÄãÖÐ¹ú";
