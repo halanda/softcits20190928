@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class StudentDao {
    
@@ -176,6 +178,56 @@ public class StudentDao {
 		return student;
 	} 
 	
+	//查询所有
+	public List<Student> selectAll(){
+		List<Student> list = new ArrayList<>();
+		Connection conn = ConnDb.getConnection();
+		PreparedStatement pst = null;
+		String sql = "select * from student";
+		//结果集
+		ResultSet rs = null;
+		
+		try {
+			pst = conn.prepareStatement(sql);
+			
+		//执行查询语句 执行executeQuery()
+			rs = pst.executeQuery();
+			while(rs.next()) {
+			//实例化对象
+				Student student = new Student();
+			//获取结果集中对应的列值 通过列名获取
+				student.setStuname(rs.getString("stuname"));
+				student.setStuphone(rs.getString("stuphone"));
+				student.setStubirthday(rs.getString("stubirthday"));
+				student.setStuheight(rs.getDouble("stuheight"));
+				student.setClassid(rs.getInt("classid"));
+				student.setStuno(rs.getInt("stuno"));
+				//收集到集合中
+				list.add(student);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			//关闭资源 先结果集 再关载体 最后关通道
+			try {
+				if(rs!=null) {
+					rs.close();
+				}
+				if(pst!=null) {
+					pst.close();
+				}
+				if(conn!=null) {
+					conn.close();
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return list;
+	}
+	
 	public static void main(String[] args) {
 		//测试方法
 		StudentDao studentdao = new StudentDao();
@@ -194,7 +246,9 @@ public class StudentDao {
 		student.setUpdatetime("20210307155357202");
 	//	System.out.println(studentdao.insert(student));
 	//	System.out.println(studentdao.update(student));
-		System.out.println(studentdao.selectByStuno(8));
+	//	System.out.println(studentdao.selectByStuno(8));
+		System.out.println(studentdao.selectAll());
+		
 	}
 }
 
