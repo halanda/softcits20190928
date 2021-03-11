@@ -75,17 +75,8 @@ public class StudentDao {
 			e.printStackTrace();
 		}finally {
 			//关闭资源 先关载体 后关通道
-			try {
-				if(pst!=null) {
-					pst.close();
-				}
-				if(conn!=null) {
-					conn.close();
-				}
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		
+				ConnDb.close(null, pst, conn);
 		}
 		return 0;
 	}
@@ -114,17 +105,7 @@ public class StudentDao {
 			e.printStackTrace();
 		}finally {
 			//关闭资源 先关载体 后关通道
-			try {
-				if(pst!=null) {
-					pst.close();
-				}
-				if(conn!=null) {
-					conn.close();
-				}
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			ConnDb.close(null, pst, conn);
 		}
 		
 		return 0;
@@ -159,20 +140,7 @@ public class StudentDao {
 			e.printStackTrace();
 		}finally {
 			//关闭资源 先结果集 再关载体 最后关通道
-			try {
-				if(rs!=null) {
-					rs.close();
-				}
-				if(pst!=null) {
-					pst.close();
-				}
-				if(conn!=null) {
-					conn.close();
-				}
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			ConnDb.close(rs, pst, conn);
 		}
 		
 		return student;
@@ -210,20 +178,7 @@ public class StudentDao {
 			e.printStackTrace();
 		}finally {
 			//关闭资源 先结果集 再关载体 最后关通道
-			try {
-				if(rs!=null) {
-					rs.close();
-				}
-				if(pst!=null) {
-					pst.close();
-				}
-				if(conn!=null) {
-					conn.close();
-				}
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			ConnDb.close(rs, pst, conn);
 		}
 		return list;
 	}
