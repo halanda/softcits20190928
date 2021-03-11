@@ -4,6 +4,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class EmpDao {
 		
@@ -20,7 +22,7 @@ public class EmpDao {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}finally {
-				
+				//关闭资料
 				try {
 					if(st!= null) {
 						st.close();
@@ -58,64 +60,46 @@ public class EmpDao {
 				e.printStackTrace();
 			}
 			finally {
-				try {
-					if(pst!=null) {
-						pst.close();					
-					}
-					if(conn!=null) {
-						conn.close();
-					}
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				ConnDB.closeDB(null, pst, conn);
+		
 			}
 			return 0;
 		}
 		
 		
 		//查询
-		public Emp selectByEmpno(int empno) {
-			Emp emp = null;
+		public List<Emp>selectAll(){
+			List <Emp> list = new ArrayList<>();
 			Connection conn = ConnDB.getConnection();
 			PreparedStatement pst =null;
-			String sql = "select * from emps where empno =?";
+			//String sql = "select * from emps where empno =?";
+			
+			String sql = "select * from emps";
+			
 			//结果集
 			ResultSet rs =null;
 			
 			try {
 				pst = conn.prepareStatement(sql);
-				pst.setInt(1,empno);
+				//pst.setInt(1,empno);
 				rs = pst.executeQuery();
-				if(rs.next()) {
-					emp = new Emp();
+				while(rs.next()) {
+					Emp emp = new Emp();
 					emp.setEname(rs.getString("ename"));
 					emp.setJob(rs.getString("job"));
 					emp.setSal(rs.getDouble("sal"));
 					emp.setHiredate(rs.getString("hiredate"));
 					emp.setDeptno(rs.getInt("deptno"));
 					emp.setEmpno(rs.getInt("empno"));
+					list.add(emp);
 				}
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}finally {
-				
-				try {
-					if(rs!=null) {
-						rs.close();
-					}
-					if(pst!=null) {
-						pst.close();
-					}
-					if(conn!=null) {}
-					conn.close();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				ConnDB.closeDB(rs, pst, conn);
 			}
-			return emp;
+			return list;
 		}
 		
 		
@@ -133,8 +117,9 @@ public class EmpDao {
 		emp.setSal(8888.88);	
 		emp.setHiredate("2021-3-7");
 //	    System.out.println(empDao.insert(emp));
+//      System.out.println(empDao.selectByEmpno(7521));
 		
-		System.out.println(empDao.selectByEmpno(7521));
+		System.out.println(empDao.selectAll());
 	
 	}
 	

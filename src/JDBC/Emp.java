@@ -8,6 +8,9 @@ public class Emp {
 	private double sal;
 	private String hiredate;
 	private int deptno;
+
+	
+	
 	public int getEmpno() {
 		return empno;
 	}
@@ -50,6 +53,8 @@ public class Emp {
 				+ ", deptno=" + deptno + "]";
 	}
 	
+	}
+	
 	
 
-}
+
