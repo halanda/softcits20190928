@@ -183,6 +183,65 @@ public class StudentDao {
 		return list;
 	}
 	
+	//多表连接
+	public List<Student> selectStudentClassAll(){
+		List<Student> list = new ArrayList<>();
+		Connection conn = ConnDb.getConnection();
+		PreparedStatement pst = null;
+		String sql = "SELECT\r\n" + 
+				"s.stuno,\r\n" + 
+				"s.stuname,\r\n" + 
+				"s.stuphone,\r\n" + 
+				"s.stubirthday,\r\n" + 
+				"s.stuheight,\r\n" + 
+				"s.classid,\r\n" + 
+				"s.createtime,\r\n" + 
+				"s.updatetime,\r\n" + 
+				"c.classname,\r\n" + 
+				"c.classloc,\r\n" + 
+				"c.classmemo\r\n" + 
+				"FROM student s\r\n" + 
+				"LEFT OUTER JOIN stuclass c\r\n" + 
+				"ON s.classid = c.classid";
+		//结果集
+		ResultSet rs = null;
+		
+		try {
+			pst = conn.prepareStatement(sql);
+			
+		//执行查询语句 执行executeQuery()
+			rs = pst.executeQuery();
+			while(rs.next()) {
+			//实例化对象
+				Student student = new Student();
+			//获取结果集中对应的列值 通过列名获取
+				student.setStuname(rs.getString("stuname"));
+				student.setStuphone(rs.getString("stuphone"));
+				student.setStubirthday(rs.getString("stubirthday"));
+				student.setStuheight(rs.getDouble("stuheight"));
+				student.setClassid(rs.getInt("classid"));
+				student.setStuno(rs.getInt("stuno"));
+			//收集班级信息
+				Stuclass stuclass = new Stuclass();
+				stuclass.setClassid(rs.getInt("classid"));
+				stuclass.setClassname(rs.getString("classname"));
+				stuclass.setClassloc(rs.getString("classloc"));
+			//将班级信息放到学生中
+				student.setStuclass(stuclass);
+				
+				//收集到集合中
+				list.add(student);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			//关闭资源 先结果集 再关载体 最后关通道
+			ConnDb.close(rs, pst, conn);
+		}
+		return list;
+	}
+	
 	public static void main(String[] args) {
 		//测试方法
 		StudentDao studentdao = new StudentDao();
@@ -202,8 +261,8 @@ public class StudentDao {
 	//	System.out.println(studentdao.insert(student));
 	//	System.out.println(studentdao.update(student));
 	//	System.out.println(studentdao.selectByStuno(8));
-		System.out.println(studentdao.selectAll());
-		
+	//	System.out.println(studentdao.selectAll());
+		System.out.println(studentdao.selectStudentClassAll());
 	}
 }
 

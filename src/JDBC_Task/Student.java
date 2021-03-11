@@ -10,7 +10,16 @@ public class Student {
 	private int classid;
 	private String createtime;
 	private String updatetime;
+	//学生包含班级
+	private Stuclass stuclass;
 	
+	
+	public Stuclass getStuclass() {
+		return stuclass;
+	}
+	public void setStuclass(Stuclass stuclass) {
+		this.stuclass = stuclass;
+	}
 	public int getStuno() {
 		return stuno;
 	}
@@ -59,12 +68,16 @@ public class Student {
 	public void setUpdatetime(String updatetime) {
 		this.updatetime = updatetime;
 	}
-	
 	@Override
 	public String toString() {
 		return "Student [stuno=" + stuno + ", stuname=" + stuname + ", stuphone=" + stuphone + ", stubirthday="
 				+ stubirthday + ", stuheight=" + stuheight + ", classid=" + classid + ", createtime=" + createtime
-				+ ", updatetime=" + updatetime + "]";
+				+ ", updatetime=" + updatetime + ", stuclass=" + stuclass + ", getStuclass()=" + getStuclass()
+				+ ", getStuno()=" + getStuno() + ", getStuname()=" + getStuname() + ", getStuphone()=" + getStuphone()
+				+ ", getStubirthday()=" + getStubirthday() + ", getStuheight()=" + getStuheight() + ", getClassid()="
+				+ getClassid() + ", getCreatetime()=" + getCreatetime() + ", getUpdatetime()=" + getUpdatetime()
+				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
+				+ "]";
 	}
 	
 	
